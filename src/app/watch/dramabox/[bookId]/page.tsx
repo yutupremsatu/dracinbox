@@ -123,8 +123,8 @@ export default function DramaBoxWatchPage() {
       <main className="fixed inset-0 bg-black flex flex-col items-center justify-center space-y-4">
         <Loader2 className="w-12 h-12 animate-spin text-primary" />
         <div className="text-center space-y-2">
-            <h3 className="text-white font-medium text-lg">Memuat video...</h3>
-            <p className="text-white/60 text-sm">Mohon tunggu sebentar, data sedang diambil.</p>
+          <h3 className="text-white font-medium text-lg">Memuat video...</h3>
+          <p className="text-white/60 text-sm">Mohon tunggu sebentar, data sedang diambil.</p>
         </div>
       </main>
     );
@@ -157,9 +157,9 @@ export default function DramaBoxWatchPage() {
             className="flex items-center gap-2 text-white/90 hover:text-white transition-colors p-2 -ml-2 rounded-full hover:bg-white/10"
           >
             <ChevronLeft className="w-6 h-6" />
-            <span className="text-primary font-bold hidden sm:inline shadow-black drop-shadow-md">SekaiDrama</span>
+            <span className="text-primary font-bold hidden sm:inline shadow-black drop-shadow-md">DracinBox</span>
           </Link>
-          
+
           <div className="text-center flex-1 px-4 min-w-0">
             <h1 className="text-white font-medium truncate text-sm sm:text-base drop-shadow-md">
               {book.bookName}
@@ -203,56 +203,56 @@ export default function DramaBoxWatchPage() {
 
       {/* Main Video Area */}
       <div className="flex-1 w-full h-full relative bg-black flex flex-col items-center justify-center">
-         {/* Video Element Wrapper */}
-         <div className="relative w-full h-full flex items-center justify-center">
-            {currentEpisodeData ? (
-              <video
-                ref={videoRef}
-                src={getVideoUrl()}
-                controls
-                autoPlay
-                onEnded={handleVideoEnded}
-                className="w-full h-full object-contain max-h-[100dvh]"
-                poster={currentEpisodeData.chapterImg}
-              />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center z-20">
-                <Loader2 className="w-10 h-10 text-primary animate-spin" />
-              </div>
-            )}
-         </div>
-
-         {/* Navigation Controls Overlay - Bottom */}
-         {/* Adjusted to bottom-20 on mobile per user feedback. */}
-         <div className="absolute bottom-20 md:bottom-12 left-0 right-0 z-40 pointer-events-none flex justify-center pb-safe-area-bottom">
-            <div className="flex items-center gap-2 md:gap-6 pointer-events-auto bg-black/60 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-3 rounded-full border border-white/10 shadow-lg transition-all scale-90 md:scale-100 origin-bottom">
-                <button
-                  onClick={() => currentEpisode > 0 && handleEpisodeChange(currentEpisode - 1)}
-                  disabled={currentEpisode <= 0}
-                  className="p-1.5 md:p-2 rounded-full text-white disabled:opacity-30 hover:bg-white/10 transition-colors"
-                >
-                  <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
-                </button>
-                
-                <span className="text-white font-medium text-xs md:text-sm tabular-nums min-w-[60px] md:min-w-[80px] text-center">
-                  Ep {currentEpisode + 1} / {totalEpisodes}
-                </span>
-
-                <button
-                  onClick={() => currentEpisode < totalEpisodes - 1 && handleEpisodeChange(currentEpisode + 1)}
-                  disabled={currentEpisode >= totalEpisodes - 1}
-                  className="p-1.5 md:p-2 rounded-full text-white disabled:opacity-30 hover:bg-white/10 transition-colors"
-                >
-                  <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
-                </button>
+        {/* Video Element Wrapper */}
+        <div className="relative w-full h-full flex items-center justify-center">
+          {currentEpisodeData ? (
+            <video
+              ref={videoRef}
+              src={getVideoUrl()}
+              controls
+              autoPlay
+              onEnded={handleVideoEnded}
+              className="w-full h-full object-contain max-h-[100dvh]"
+              poster={currentEpisodeData.chapterImg}
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center z-20">
+              <Loader2 className="w-10 h-10 text-primary animate-spin" />
             </div>
-         </div>
+          )}
+        </div>
+
+        {/* Navigation Controls Overlay - Bottom */}
+        {/* Adjusted to bottom-20 on mobile per user feedback. */}
+        <div className="absolute bottom-20 md:bottom-12 left-0 right-0 z-40 pointer-events-none flex justify-center pb-safe-area-bottom">
+          <div className="flex items-center gap-2 md:gap-6 pointer-events-auto bg-black/60 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-3 rounded-full border border-white/10 shadow-lg transition-all scale-90 md:scale-100 origin-bottom">
+            <button
+              onClick={() => currentEpisode > 0 && handleEpisodeChange(currentEpisode - 1)}
+              disabled={currentEpisode <= 0}
+              className="p-1.5 md:p-2 rounded-full text-white disabled:opacity-30 hover:bg-white/10 transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
+            </button>
+
+            <span className="text-white font-medium text-xs md:text-sm tabular-nums min-w-[60px] md:min-w-[80px] text-center">
+              Ep {currentEpisode + 1} / {totalEpisodes}
+            </span>
+
+            <button
+              onClick={() => currentEpisode < totalEpisodes - 1 && handleEpisodeChange(currentEpisode + 1)}
+              disabled={currentEpisode >= totalEpisodes - 1}
+              className="p-1.5 md:p-2 rounded-full text-white disabled:opacity-30 hover:bg-white/10 transition-colors"
+            >
+              <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Episode List Sidebar */}
       {showEpisodeList && (
         <>
-          <div 
+          <div
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
             onClick={() => setShowEpisodeList(false)}
           />
@@ -278,8 +278,8 @@ export default function DramaBoxWatchPage() {
                   onClick={() => handleEpisodeChange(idx)}
                   className={`
                     aspect-square flex items-center justify-center rounded-lg text-sm font-medium transition-all
-                    ${idx === currentEpisode 
-                      ? "bg-primary text-white shadow-lg shadow-primary/20" 
+                    ${idx === currentEpisode
+                      ? "bg-primary text-white shadow-lg shadow-primary/20"
                       : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white"
                     }
                   `}

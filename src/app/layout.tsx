@@ -3,13 +3,17 @@ import "@/styles/globals.css";
 import { Providers } from "@/components/providers";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { BottomNav } from "@/components/BottomNav";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "SekaiDrama - Streaming Drama Pendek",
-  description: "Nonton drama pendek gratis dan tanpa iklan di SekaiDrama.",
+  title: "DracinBox - Streaming Drama Terlengkap",
+  description: "Nonton drama box office asia gratis dan tanpa iklan di DracinBox.",
+  manifest: "/manifest.json",
+  themeColor: "#E11D48",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0",
 };
 
 export default function RootLayout({
@@ -31,6 +35,7 @@ export default function RootLayout({
           </Suspense>
           {children}
           <Footer />
+          <BottomNav />
           <Toaster />
           <Sonner />
         </Providers>
