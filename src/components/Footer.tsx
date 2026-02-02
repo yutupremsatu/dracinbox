@@ -14,41 +14,21 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border/50 bg-background/80 backdrop-blur-sm">
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex flex-col items-center justify-center gap-3">
-          {/* API Promo */}
-          {/* <ul className="space-y-2 text-sm">
-              <li>
-                <a 
-                  href="https://lynk.id/sansekai/6gdx3w875wx1" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 text-primary hover:underline font-semibold"
-                >
-                  Beli Source Code Website Ini
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </li>
-          </ul> */}
-
-          <p className="text-sm text-muted-foreground text-center">
-            API yang digunakan:{" "}
-            <a 
-                  href="https://api.sansekai.my.id" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 text-primary hover:underline font-semibold"
-                >
-                  SΛNSΞKΛI API
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-          </p>
-
-          {/* Copyright */}
-          <p className="text-xs text-muted-foreground/80 text-center font-medium">
-            © {new Date().getFullYear()} Made with ❤️ by Yusril
-          </p>
+      <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center shadow-lg shadow-primary/25">
+            <span className="text-white font-bold text-lg">D</span>
+          </div>
+          <span className="font-bold text-lg text-white">DracinBox</span>
         </div>
+
+        <p className="text-xs text-muted-foreground/60 text-center max-w-sm leading-relaxed">
+          Platform streaming drama asia gratis terbaik dengan pengalaman premium.
+        </p>
+
+        <p className="text-[10px] text-muted-foreground/40 text-center font-medium mt-4">
+          © {new Date().getFullYear()} DracinBox Inc. All rights reserved.
+        </p>
       </div>
     </footer>
   );
